@@ -69,22 +69,16 @@ if __name__ == '__main__':
 
     if platform.system() == 'Windows':
         seek = 'findstr'
-        raw_input(u'请启动被测应用，启动后按Enter键继续：')    # 此种编码方式在命令行下执行py文件时，中文显示为乱码
-        # raw_input('请启动被测应用，启动后按Enter键继续：'.decode('utf-8').encode('gbk'))  # 此种方式在pycharm中执行脚本时，中文显示为乱码
-        activity = get_activity()
-        print activity
-        startType = raw_input(u'计算首次启动时间请输入"1st"，计算二次启动时间请输入"2nd"输入后按Enter键继续: ')
-        num = raw_input(u'请输入执行次数，按Enter键继续： ')
-
-        app_start_time(activity, startType, seek, num)
 
     else:
         seek = 'grep'
+        
+    raw_input(u'请启动被测应用，启动后按Enter键继续：')    # 此种编码方式在命令行下执行py文件时，中文显示为乱码
+    # raw_input('请启动被测应用，启动后按Enter键继续：'.decode('utf-8').encode('gbk'))  # 此种方式在pycharm中执行脚本时，中文显示为乱码
+    activity = get_activity()
+    print activity
+    startType = raw_input(u'计算首次启动时间请输入"1st"，计算二次启动时间请输入"2nd"输入后按Enter键继续: ')
+    num = raw_input(u'请输入执行次数，按Enter键继续： ')
 
-    # raw_input('Please start the app on your phone, then press "Enter" to continue: ')
-    # activity = get_activity()
-    # print activity
-    # startType = raw_input('Please input "1st" for first-time start or "2nd" for second-time start, then press "Enter" to continue:')
-    # num = raw_input('Please input the number of executions, then press "Enter" to continue:')
-    #
-    # app_start_time(activity, startType, seek, num)
+    app_start_time(activity, startType, seek, num)
+
